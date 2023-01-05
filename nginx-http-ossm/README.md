@@ -39,14 +39,14 @@ $ oc apply -f application.yaml
 ### How to reach the NGINX Servers:
 1. Print out the OCP Route:
 ~~~
-oc -n istio-system get route
+$ oc -n istio-system get route
 NAME                                        HOST/PORT                                                                                              PATH   SERVICES               PORT          TERMINATION          WILDCARD
 nginx-http-ossm-nginx-gateway-525eca1d5089dbdc   nginx-http-ossm-nginx-gateway-525eca1d5089dbdc-istio-system.apps.dnessill-411-sdn.sandbox2574.opentlc.com          istio-ingressgateway   http2                              None                              None
 ~~~
 
 2. Server NGINX-1
 ~~~
-curl nginx-http-ossm-nginx-gateway-525eca1d5089dbdc-istio-system.apps.dnessill-411-sdn.sandbox2574.opentlc.com/nginx-1.html
+$ curl nginx-http-ossm-nginx-gateway-525eca1d5089dbdc-istio-system.apps.dnessill-411-sdn.sandbox2574.opentlc.com/nginx-1.html
 <html>
 <h1>Welcome</h1>
 </br>
@@ -56,7 +56,7 @@ curl nginx-http-ossm-nginx-gateway-525eca1d5089dbdc-istio-system.apps.dnessill-4
 
 3. Server NGINX-2
 ~~~
-curl nginx-http-ossm-nginx-gateway-525eca1d5089dbdc-istio-system.apps.dnessill-411-sdn.sandbox2574.opentlc.com/nginx-2.html
+$ curl nginx-http-ossm-nginx-gateway-525eca1d5089dbdc-istio-system.apps.dnessill-411-sdn.sandbox2574.opentlc.com/nginx-2.html
 <html>
 <h1>Welcome</h1>
 </br>
