@@ -1,0 +1,11 @@
+# deployment
+
+registry_name: "quay.io"
+registry_org: "dnessill"
+image_tag: "latest"
+image_name: "nginx"
+secret_name: "creds-wildcard"
+configmap_name: "ca-crt"
+
+# all
+namespace_name: "nginx-http-ossm"

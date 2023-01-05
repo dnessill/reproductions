@@ -1,0 +1,26 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: nginx-vs
+spec:
+  hosts:
+  - "*"
+  gateways:
+  - nginx-gateway
+  http:
+  - match:
+    - uri:
+        exact: /nginx-1.html
+    route:
+    - destination:
+        host: nginx-1
+        port:
+          number: 80
+  - match:
+    - uri:
+        exact: /nginx-2.html
+    route:
+    - destination:
+        host: nginx-2
+        port:
+          number: 80
