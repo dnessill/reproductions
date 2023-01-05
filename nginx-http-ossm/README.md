@@ -41,12 +41,12 @@ $ oc apply -f application.yaml
 ~~~
 oc -n istio-system get route
 NAME                                        HOST/PORT                                                                                              PATH   SERVICES               PORT          TERMINATION          WILDCARD
-nginx-http-nginx-gateway-525eca1d5089dbdc   nginx-http-nginx-gateway-525eca1d5089dbdc-istio-system.apps.dnessill-411-sdn.sandbox2574.opentlc.com          istio-ingressgateway   http2                              None
+nginx-http-ossm-nginx-gateway-525eca1d5089dbdc   nginx-http-ossm-nginx-gateway-525eca1d5089dbdc-istio-system.apps.dnessill-411-sdn.sandbox2574.opentlc.com          istio-ingressgateway   http2                              None                              None
 ~~~
 
 2. Server NGINX-1
 ~~~
-curl nginx-http-nginx-gateway-525eca1d5089dbdc-istio-system.apps.dnessill-411-sdn.sandbox2574.opentlc.com/nginx-1.html
+curl nginx-http-ossm-nginx-gateway-525eca1d5089dbdc-istio-system.apps.dnessill-411-sdn.sandbox2574.opentlc.com/nginx-1.html
 <html>
 <h1>Welcome</h1>
 </br>
@@ -56,7 +56,7 @@ curl nginx-http-nginx-gateway-525eca1d5089dbdc-istio-system.apps.dnessill-411-sd
 
 3. Server NGINX-2
 ~~~
-curl nginx-http-nginx-gateway-525eca1d5089dbdc-istio-system.apps.dnessill-411-sdn.sandbox2574.opentlc.comhostname/nginx-2.html
+curl nginx-http-ossm-nginx-gateway-525eca1d5089dbdc-istio-system.apps.dnessill-411-sdn.sandbox2574.opentlc.com/nginx-2.html
 <html>
 <h1>Welcome</h1>
 </br>
