@@ -3,7 +3,7 @@ This pipeline creates a **HTTP NGINX Server** behind Red Hat Service Mesh Ingres
 
 ### Network Flow
 
-<img src="https://github.com/dnessill/reproductions/blob/main/nginx-http-ossm/nginx-http-ossm.png" width="80%" height="80%">
+<img src="https://github.com/dnessill/reproductions/blob/main/nginx-http-ossm-tls-gateway-termination/nginx-http-ossm.png" width="80%" height="80%">
 <br/>
 <br/>
 
@@ -46,7 +46,7 @@ nginx-http-ossm-nginx-gateway-525eca1d5089dbdc   nginx-http-ossm-nginx-gateway-5
 
 2. Store the Root CA certificate in the ca.crt file:
 ~~~
-$ oc get cm ca-crt -n nginx-http-ossm -ojsonpath='{.data.ca\.crt}' > ca.crt
+$ oc get cm ca-crt -n nginx-http-ossm-tls-gateway-termination -ojsonpath='{.data.ca\.crt}' > ca.crt
 ~~~
 
 3. Server NGINX-1
