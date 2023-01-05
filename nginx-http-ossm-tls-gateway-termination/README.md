@@ -39,7 +39,7 @@ $ oc apply -f application.yaml
 ### How to reach the NGINX Servers:
 1. Print out the OCP Route:
 ~~~
-oc -n istio-system get route
+$ oc -n istio-system get route
 NAME                                             HOST/PORT                                                                                                   PATH   SERVICES               PORT    TERMINATION   WILDCARD
 nginx-http-ossm-tls-nginx-gateway-525eca1d5089dbdc   nginx-http-ossm-tls-nginx-gateway-525eca1d5089dbdc-istio-system.apps.dnessill-411-sdn.sandbox2574.opentlc.com          istio-ingressgateway   https         passthrough          None
 ~~~
