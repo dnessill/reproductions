@@ -41,17 +41,17 @@ $ oc apply -f application.yaml
 ~~~
 oc -n istio-system get route
 NAME                                             HOST/PORT                                                                                                   PATH   SERVICES               PORT    TERMINATION   WILDCARD
-nginx-http-ossm-nginx-gateway-525eca1d5089dbdc   nginx-http-ossm-nginx-gateway-525eca1d5089dbdc-istio-system.apps.dnessill-411-sdn.sandbox2574.opentlc.com          istio-ingressgateway   https   passthrough   None
+nginx-http-ossm-tls-nginx-gateway-525eca1d5089dbdc   nginx-http-ossm-tls-nginx-gateway-525eca1d5089dbdc-istio-system.apps.dnessill-411-sdn.sandbox2574.opentlc.com          istio-ingressgateway   https         passthrough          None
 ~~~
 
 2. Store the Root CA certificate in the ca.crt file:
 ~~~
-$ oc get cm ca-crt -n nginx-http-ossm-tls-gateway-termination -ojsonpath='{.data.ca\.crt}' > ca.crt
+$ oc get cm ca-crt -n nginx-http-ossm-tls -ojsonpath='{.data.ca\.crt}' > ca.crt
 ~~~
 
 3. Server NGINX-1
 ~~~
-$ curl --cacert ca.crt https://nginx-http-ossm-nginx-gateway-525eca1d5089dbdc-istio-system.apps.dnessill-411-sdn.sandbox2574.opentlc.com
+$ curl --cacert ca.crt https://nginx-http-ossm-tls-nginx-gateway-525eca1d5089dbdc-istio-system.apps.dnessill-411-sdn.sandbox2574.opentlc.com
 <html>
 <h1>Welcome</h1>
 <h1>Hi! This is HTTP Server </h1>
