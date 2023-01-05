@@ -3,7 +3,7 @@ This pipeline creates two **HTTP NGINX Servers** exposed by Service Mesh using a
 
 ### Network Flow
 
-<img src="https://github.com/dnessill/reproductions/blob/main/nginx-http/nginx-http.png" width="80%" height="80%">
+<img src="https://github.com/dnessill/reproductions/blob/main/nginx-http-ossm/nginx-http-ossm.png" width="80%" height="80%">
 <br/>
 <br/>
 
