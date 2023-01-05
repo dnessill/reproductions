@@ -3,7 +3,7 @@ This pipeline creates a **HTTP NGINX Server** behind Red Hat Service Mesh Ingres
 
 ### Network Flow
 
-<img src="https://github.com/dnessill/reproductions/blob/main/nginx-http-ossm-tls-gateway-termination/nginx-http-ossm.png" width="80%" height="80%">
+<img src="https://github.com/dnessill/reproductions/blob/main/nginx-http-ossm-tls-gateway-termination/nginx-http-ossm-tls.png" width="80%" height="80%">
 <br/>
 <br/>
 
