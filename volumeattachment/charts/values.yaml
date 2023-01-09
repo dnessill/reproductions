@@ -3,6 +3,7 @@
 image_tag: "latest"
 image_name: "busybox"
 claim_name: "claim"
+sc_name: "gp2-csi"
 
 # all
 namespace_name: "volumeattachment"
