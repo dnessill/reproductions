@@ -4,7 +4,7 @@ metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io
   name: volumeattachment
-  namespace: volumeattachment
+  namespace: openshift-gitops
 spec:
   destination:
     name: in-cluster
