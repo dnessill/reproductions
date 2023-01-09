@@ -5,4 +5,4 @@ image_name: "busybox"
 claim_name: "claim"
 
 # all
-namespace_name: "volumeattachment-claim"
+namespace_name: "volumeattachment"
