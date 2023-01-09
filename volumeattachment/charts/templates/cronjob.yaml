@@ -1,0 +1,27 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: busybox
+  namespace: {{ .Values.namespace_name }}
+spec:
+  schedule: "*/3 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: busybox
+            image: {{ .Values.image_name }}:{{ .Values.image_tag }}
+            imagePullPolicy: IfNotPresent
+            volumeMounts:
+            - name: persistent-storage
+              mountPath: /data
+            command:
+            - /bin/sh
+            - -c
+            - date; echo Hello from the Kubernetes cluster; echo $(date +"%H:%M":%S) >> /data/date.txt;  sleep 1m
+          restartPolicy: OnFailure
+          volumes:
+          - name: persistent-storage
+            persistentVolumeClaim:
+              claimName: {{ .Values.claim_name }}
