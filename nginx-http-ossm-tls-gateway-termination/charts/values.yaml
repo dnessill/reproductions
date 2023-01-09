@@ -4,6 +4,8 @@ registry_name: "quay.io"
 registry_org: "dnessill"
 image_tag: "latest"
 image_name: "nginx"
+image_init_tag: "latest"
+image_init: "dnessill-root-ose-cli"
 secret_name: "creds-wildcard"
 configmap_name: "ca-crt"
 
