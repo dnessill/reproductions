@@ -11,7 +11,7 @@ This pipeline creates a **HTTP NGINX Server** behind Red Hat Service Mesh Ingres
 ### Prerequisite
 1. Installing [Red Hat Service Mesh](https://docs.openshift.com/container-platform/latest/service_mesh/v2x/installing-ossm.html).
 2. Installing [OpenShift ArgoCD](https://docs.openshift.com/container-platform/latest/cicd/gitops/installing-openshift-gitops.html).
-3. Adding the **nginx-http-ossm** project to the Service Mesh Member Role ([Solution 4683861](https://access.redhat.com/solutions/4683861)).
+3. Adding the **nginx-http-ossm-tls** project to the Service Mesh Member Role ([Solution 4683861](https://access.redhat.com/solutions/4683861)).
 <br/>
 <br/>
 
