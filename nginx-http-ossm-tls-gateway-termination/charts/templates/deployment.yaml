@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: quay.io/dnessill/nginx
+        image: {{ .Values.registry_name }}/{{ .Values.registry_org }}/{{ .Values.image_name }}:{{ .Values.image_tag }}
         ports:
         - containerPort: 80
         volumeMounts:
@@ -30,7 +30,7 @@ spec:
           name: index-html-configmap
       initContainers:
       - name: ose-cli
-        image: quay.io/dnessill/dnessill-root-ose-cli
+        image: {{ .Values.registry_name }}/{{ .Values.registry_org }}/{{ .Values.image_init_name }}:{{ .Values.image_init_tag }}
         imagePullPolicy: Always
         ports:
         - containerPort: 80
