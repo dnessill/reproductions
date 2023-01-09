@@ -4,7 +4,7 @@ metadata:
   name: busybox
   namespace: {{ .Values.namespace_name }}
 spec:
-  schedule: "*/3 * * * *"
+  schedule: "*/1 * * * *"
   jobTemplate:
     spec:
       template:
