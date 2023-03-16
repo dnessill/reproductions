@@ -10,7 +10,7 @@ spec:
   description: This is just an example.
   destinations:
     - name: in-cluster
-      namespace: ldap-identity-provider
+#      namespace: ldap-identity-provider
       server: 'https://kubernetes.default.svc'
   namespaceResourceWhitelist:
     - group: '*'
