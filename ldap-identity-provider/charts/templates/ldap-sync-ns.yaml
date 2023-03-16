@@ -14,7 +14,7 @@ metadata:
     pod-security.kubernetes.io/audit-version: v1.24
     pod-security.kubernetes.io/warn: baseline
     pod-security.kubernetes.io/warn-version: v1.24
-  name: {{ .Values.ldap-sync_namespace_name }}
+  name: {{ .Values.ldap_sync_namespace_name }}
 spec:
   finalizers:
   - kubernetes
