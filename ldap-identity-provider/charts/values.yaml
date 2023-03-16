@@ -2,7 +2,7 @@
 
 registry_name: "quay.io"
 registry_org: "dnessill"
-image_tag_openldap: "latest"
+openldap_image_tag: "latest"
 openldap_image_name: "my-openldap"
 
 # all
@@ -12,7 +12,7 @@ openldap_namespace_name: "ldap-identity-provider"
 
 # deployment phpldapadmin
 
-image_tag_openldap: "latest"
+phpldapadmin_image_tag: "latest"
 phpldapadmin_image_name: "phpldapadmin"
 
 # all
