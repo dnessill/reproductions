@@ -2,4 +2,4 @@ apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: phpldapadmin
-  namespace: {{ .Values.openldap_namespace_name }}
+  namespace: {{ .Values.phpldapadmin_namespace_name }}
