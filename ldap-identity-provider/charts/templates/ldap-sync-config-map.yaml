@@ -2,7 +2,7 @@ kind: ConfigMap
 apiVersion: v1
 metadata:
   name: ldap-group-syncer
-  namespace: {{ .Values.ldap-sync_namespace_name }}
+  namespace: {{ .Values.ldap_sync_namespace_name }}
 data:
   sync.yaml: |                                 
     kind: LDAPSyncConfig
