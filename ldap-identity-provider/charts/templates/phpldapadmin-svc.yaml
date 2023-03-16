@@ -6,7 +6,7 @@ metadata:
     app.kubernetes.io/component: phpldapadmin
     app.kubernetes.io/instance: phpldapadmin
   name: phpldapadmin
-  namespace: {{ .Values.openldap_namespace_name }}
+  namespace: {{ .Values.phpldapadmin_namespace_name }}
 spec:
   internalTrafficPolicy: Cluster
   ipFamilies:
