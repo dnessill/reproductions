@@ -29,7 +29,7 @@ spec:
       - env:
         - name: LDAP_ADMIN_PASSWORD
           value: anypassword
-        image: {{ .Values.registry_name }}/{{ .Values.registry_org }}/{{ .Values.openldap_image_name }}:{{ .Values.image_tag }}
+        image: {{ .Values.registry_name }}/{{ .Values.registry_org }}/{{ .Values.openldap_image_name }}:{{ .Values.openldap_image_tag }}
         imagePullPolicy: Always
         name: openldap
         ports:
