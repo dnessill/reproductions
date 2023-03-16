@@ -2,7 +2,7 @@ kind: CronJob
 apiVersion: batch/v1
 metadata:
   name: ldap-group-syncer
-  namespace: {{ .Values.ldap-sync_namespace_name }}
+  namespace: {{ .Values.ldap_sync_namespace_name }}
 spec:                                                                                
   schedule: "*/2 * * * *"                                                           
   concurrencyPolicy: Forbid
