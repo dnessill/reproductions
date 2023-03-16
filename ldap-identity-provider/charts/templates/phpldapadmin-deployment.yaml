@@ -23,7 +23,7 @@ spec:
       containers:
       - env:
         - name: PHPLDAPADMIN_LDAP_HOSTS
-          value: {{ .Values.openldap_namespace_name }}.ldapserver.svc.cluster.local
+          value: openldap.{{ .Values.openldap_namespace_name }}.svc.cluster.local
         image: {{ .Values.registry_name }}/{{ .Values.registry_org }}/{{ .Values.phpldapadmin_image_name }}:{{ .Values.image_tag }}
         imagePullPolicy: IfNotPresent
         name: phpldapadmin
