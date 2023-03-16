@@ -23,4 +23,4 @@ phpldapadmin_namespace_name: "ldap-identity-provider"
 
 
 # ldap group sync
-ldap-sync_namespace_name: "ldap-sync"
+ldap-sync_namespace_name: "ldap-identity-provider"
