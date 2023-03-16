@@ -16,7 +16,7 @@ This means that all the communication between the OCP Cluster and the LDAP Serve
 
 ### Prerequisite
 1. Installing [OpenShift ArgoCD](https://docs.openshift.com/container-platform/latest/cicd/gitops/installing-openshift-gitops.html).
-2. Understand the [IDentity Provider](https://docs.openshift.com/container-platform/4.11/authentication/understanding-identity-provider.html).
+2. Understand the [Identity Provider](https://docs.openshift.com/container-platform/4.11/authentication/understanding-identity-provider.html).
 3. All the informations about the LDAP Server image and the users configurations hardcoded inside it are reported at the end of this document.
 <br/>
 <br/>
