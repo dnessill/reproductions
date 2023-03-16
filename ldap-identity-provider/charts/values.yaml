@@ -4,9 +4,7 @@ registry_name: "quay.io"
 registry_org: "dnessill"
 openldap_image_tag: "latest"
 openldap_image_name: "my-openldap"
-
-# all
-openldap_namespace_name: "ldap-identity-provider"
+openldap_namespace_name: "openldap"
 
 
 
@@ -14,11 +12,9 @@ openldap_namespace_name: "ldap-identity-provider"
 
 phpldapadmin_image_tag: "latest"
 phpldapadmin_image_name: "phpldapadmin"
-
-# all
-phpldapadmin_namespace_name: "ldap-identity-provider"
+phpldapadmin_namespace_name: "phpldapadmin"
 
 
 # ldap group sync
-ldap_sync_namespace_name: "ldap-identity-provider"
+ldap_sync_namespace_name: "ldap-sync"
 
