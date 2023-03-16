@@ -1,0 +1,52 @@
+dn: ou=Users,dc=example,dc=com
+changetype: add
+objectclass: organizationalUnit
+ou: Users
+
+dn: cn=developer,ou=Users,dc=example,dc=com
+changetype: add
+objectclass: inetOrgPerson
+cn: developer
+givenname: developer
+sn: Developer
+displayname: Developer User
+mail: developer@gmail.com
+userpassword: password
+
+dn: cn=maintainer,ou=Users,dc=example,dc=com
+changetype: add
+objectclass: inetOrgPerson
+cn: maintainer
+givenname: maintainer
+sn: Maintainer
+displayname: Maintainer User
+mail: maintainer@gmail.com
+userpassword: password
+
+dn: cn=admin_gh,ou=Users,dc=example,dc=com
+changetype: add
+objectclass: inetOrgPerson
+cn: admin_gh
+givenname: admin_gh
+sn: AdminGithub
+displayname: Admin Github User
+mail: admin_gh@gmail.com
+userpassword: password
+
+dn: ou=Groups,dc=example,dc=com
+changetype: add
+objectclass: organizationalUnit
+ou: Groups
+
+dn: cn=Admins,ou=Groups,dc=example,dc=com
+changetype: add
+cn: Admins
+objectclass: groupOfUniqueNames
+uniqueMember: cn=admin_gh,ou=Users,dc=example,dc=com
+
+dn: cn=Maintaners,ou=Groups,dc=example,dc=com
+changetype: add
+cn: Maintaners
+objectclass: groupOfUniqueNames
+uniqueMember: cn=maintainer,ou=Users,dc=example,dc=com
+uniqueMember: cn=developer,ou=Users,dc=example,dc=com

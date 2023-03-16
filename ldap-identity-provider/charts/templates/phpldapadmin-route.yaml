@@ -1,0 +1,17 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  labels:
+    app: phpldapadmin
+    app.kubernetes.io/component: phpldapadmin
+    app.kubernetes.io/instance: phpldapadmin
+  name: phpldapadmin
+  namespace: {{ .Values.openldap_namespace_name }}
+spec:
+  port:
+    targetPort: tcp
+  to:
+    kind: Service
+    name: phpldapadmin
+    weight: 100
+  wildcardPolicy: None

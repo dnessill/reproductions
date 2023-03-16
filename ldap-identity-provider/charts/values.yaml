@@ -1,0 +1,22 @@
+# deployment openldap server
+
+registry_name: "quay.io"
+registry_org: "dnessill"
+image_tag: "latest"
+image_name: "my-openldap"
+
+# all
+openldap_namespace_name: "openldapserver"
+
+
+
+# deployment phpldapadmin
+
+registry_name: "quay.io"
+registry_org: "dnessill"
+image_tag: "latest"
+image_name: "phpldapadmin"
+image_init_tag: "latest"
+
+# all
+phpldapadmin_namespace_name: "phpldapadmin"

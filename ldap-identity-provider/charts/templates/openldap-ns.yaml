@@ -1,0 +1,22 @@
+apiVersion: project.openshift.io/v1
+kind: Project
+metadata:
+  annotations:
+    openshift.io/description: ""
+    openshift.io/display-name: ""
+    openshift.io/requester: kube:admin
+    openshift.io/sa.scc.mcs: s0:c27,c14
+    openshift.io/sa.scc.supplemental-groups: 1000730000/10000
+    openshift.io/sa.scc.uid-range: 1000730000/10000
+  labels:
+    kubernetes.io/metadata.name: ldapserver
+    pod-security.kubernetes.io/audit: baseline
+    pod-security.kubernetes.io/audit-version: v1.24
+    pod-security.kubernetes.io/warn: baseline
+    pod-security.kubernetes.io/warn-version: v1.24
+  name: {{ .Values.openldap_namespace_name }}
+spec:
+  finalizers:
+  - kubernetes
+status:
+  phase: Active
