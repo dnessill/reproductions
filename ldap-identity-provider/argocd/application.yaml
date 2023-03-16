@@ -9,7 +9,7 @@ spec:
   destination:
     name: in-cluster
     namespace: ldap-identity-provider
-  project: default
+  project: ldap-identity-provider
   source:
     helm:
       valueFiles:
