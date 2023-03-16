@@ -7,7 +7,7 @@ data:
   sync.yaml: |                                 
     kind: LDAPSyncConfig
     apiVersion: v1
-    url: ldap://openldap.{{ .Values.ldap-identity-provider }}.svc.cluster.local:389                  
+    url: ldap://openldap.{{ .Values.openldap_namespace_name }}.svc.cluster.local:389                  
     insecure: true
     bindDN: cn=admin,dc=example,dc=com
     bindPassword:
