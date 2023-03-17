@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+  name: ldap-sync-application
+  namespace: openshift-gitops
+spec:
+  destination:
+    name: in-cluster
+    namespace: ldap-sync
+  project: ldap-identity-provider
+  source:
+    helm:
+      valueFiles:
+        - values.yaml
+    path: ldap-identity-provider/charts-ldap-sync/
+    repoURL: 'https://github.com/dnessill/reproductions'
+    targetRevision: HEAD
+  syncPolicy:
+    automated:
+      prune: true
+    retry:
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 3m0s
+      limit: 2
