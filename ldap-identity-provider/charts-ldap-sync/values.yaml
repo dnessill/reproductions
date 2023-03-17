@@ -1,2 +1,3 @@
 # ldap group sync
 ldap_sync_namespace_name: "ldap-sync"
+openldap_namespace_name: "openldap"
