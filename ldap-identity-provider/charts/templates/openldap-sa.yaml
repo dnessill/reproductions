@@ -1,5 +1,0 @@
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  name: openldap
-  namespace: {{ .Values.openldap_namespace_name }}
