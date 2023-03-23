@@ -12,7 +12,7 @@ This means that all the communication between the OCP Cluster and the LDAP Serve
 
 ### Network Flow
 
-<img src="https://github.com/dnessill/reproductions/blob/main/nginx-http-ossm-tls-gateway-termination/nginx-http-ossm-tls.png" width="80%" height="80%">
+<img src="https://github.com/dnessill/reproductions/blob/main/ldap-identity-provider/applications.png" width="80%" height="80%">
 <br/>
 <br/>
 
