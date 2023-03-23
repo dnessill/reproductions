@@ -83,7 +83,7 @@ oc apply -f application-ldap-sync.yaml -f application-openldap.yaml -f applicati
 
 1. Gather the **phpLDAPadmin** URL:
    ~~~
-oc get route -n phpldapadmin
+   oc get route -n phpldapadmin
    ~~~
 
 2. Connect to the web app using your browser:
