@@ -29,6 +29,10 @@ This means that all the communication between the OCP Cluster and the LDAP Serve
 <br/>
 
 2. Configure the LDAP Identity Provider updating:
+   - Create a Secret object that contains the bindPassword field:
+     ~~~
+     oc create secret generic ldap-secret --from-literal=bindPassword=anypassword -n openshift-config
+     ~~~
    - Patch the `oauth` CR adding the LDAP Server information:
      ~~~
      oc patch oauth cluster -p='{"spec": {"identityProviders": [{"ldap":{"attributes":{"email":["mail"],"id":["dn"],"name":["cn"],"preferredUsername":["cn"]},"bindDN": "cn=admin,dc=example,dc=com","bindPassword": {"name": "ldap-secret"},"insecure": true,"url": "ldap://openldap.openldap.svc.cluster.local/ou=users,dc=example,dc=com?cn"},"mappingMethod": "claim","name": "ldapidp","type": "LDAP"}]}}' --type=merge
