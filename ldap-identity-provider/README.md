@@ -72,10 +72,10 @@ oc apply -f application-ldap-sync.yaml -f application-openldap.yaml -f applicati
 
 2. Check synchronized groups and users:
    ~~~
-$ oc get groups
-NAME         USERS
-Admins       admin_gh
-Maintaners   maintainer, developer
+   $ oc get groups
+   NAME         USERS
+   Admins       admin_gh
+   Maintaners   maintainer, developer
    ~~~
 
 
