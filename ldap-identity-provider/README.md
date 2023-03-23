@@ -61,22 +61,22 @@ oc apply -f application-ldap-sync.yaml -f application-openldap.yaml -f applicati
 
 ### Verify the new Identity Provider access:
 1. Log in the Cluster as **admin_gh** user (all the user passwords are **password**):
-~~~
-oc login -u admin_gh -p password https://<your_api_url>:6443
-Login successful.
-
-You have access to 71 projects, the list has been suppressed. You can list all projects with 'oc projects'
-
-Using project "default".
-~~~
+   ~~~
+   oc login -u admin_gh -p password https://<your_api_url>:6443
+   Login successful.
+   
+   You have access to 71 projects, the list has been suppressed. You can list all projects with 'oc projects'
+   
+   Using project "default".
+   ~~~
 
 2. Check synchronized groups and users:
-~~~
+   ~~~
 $ oc get groups
 NAME         USERS
 Admins       admin_gh
 Maintaners   maintainer, developer
-~~~
+   ~~~
 
 
 ### Access the phpLDAPadmin web app:
