@@ -89,7 +89,7 @@ oc get route -n phpldapadmin
 2. Connect to the web app using your browser:
    Login DN: **cn=admin,dc=example,dc=com**
    Password: **anypassword**
-   <img src="https://github.com/dnessill/reproductions/blob/main/ldap-identity-provider/phpldapadmin.png" width="80%" height="80%">
+<img src="https://github.com/dnessill/reproductions/blob/main/ldap-identity-provider/phpldapadmin.png" width="80%" height="80%">
 <br/>
 <br/>
 
@@ -111,7 +111,7 @@ dn: ou=Users,dc=example,dc=com
 changetype: add
 objectclass: organizationalUnit
 ou: Users
-
+ 
 dn: cn=developer,ou=Users,dc=example,dc=com
 changetype: add
 objectclass: inetOrgPerson
@@ -121,7 +121,7 @@ sn: Developer
 displayname: Developer User
 mail: developer@gmail.com
 userpassword: password
-
+ 
 dn: cn=maintainer,ou=Users,dc=example,dc=com
 changetype: add
 objectclass: inetOrgPerson
@@ -131,7 +131,7 @@ sn: Maintainer
 displayname: Maintainer User
 mail: maintainer@gmail.com
 userpassword: password
-
+ 
 dn: cn=admin_gh,ou=Users,dc=example,dc=com
 changetype: add
 objectclass: inetOrgPerson
@@ -141,18 +141,18 @@ sn: AdminGithub
 displayname: Admin Github User
 mail: admin_gh@gmail.com
 userpassword: password
-
+ 
 dn: ou=Groups,dc=example,dc=com
 changetype: add
 objectclass: organizationalUnit
 ou: Groups
-
+ 
 dn: cn=Admins,ou=Groups,dc=example,dc=com
 changetype: add
 cn: Admins
 objectclass: groupOfUniqueNames
 uniqueMember: cn=admin_gh,ou=Users,dc=example,dc=com
-
+ 
 dn: cn=Maintaners,ou=Groups,dc=example,dc=com
 changetype: add
 cn: Maintaners
