@@ -31,20 +31,20 @@ This means that all the communication between the OCP Cluster and the LDAP Serve
 2. Configure the LDAP Identity Provider updating:
    - Patch the `oauth` CR adding the LDAP Server information:
      ~~~
-     $ oc patch oauth cluster -p='{"spec": {"identityProviders": [{"ldap":{"attributes":{"email":["mail"],"id":["dn"],"name":["cn"],"preferredUsername":["cn"]},"bindDN": "cn=admin,dc=example,dc=com","bindPassword": {"name": "ldap-secret"},"insecure": true,"url": "ldap://openldap.openldap.svc.cluster.local/ou=users,dc=example,dc=com?cn"},"mappingMethod": "claim","name": "ldapidp","type": "LDAP"}]}}' --type=merge
+     oc patch oauth cluster -p='{"spec": {"identityProviders": [{"ldap":{"attributes":{"email":["mail"],"id":["dn"],"name":["cn"],"preferredUsername":["cn"]},"bindDN": "cn=admin,dc=example,dc=com","bindPassword": {"name": "ldap-secret"},"insecure": true,"url": "ldap://openldap.openldap.svc.cluster.local/ou=users,dc=example,dc=com?cn"},"mappingMethod": "claim","name": "ldapidp","type": "LDAP"}]}}' --type=merge
      ~~~
    **Note**:
    Wait for the pods restart in the **openshift-authentication** project.
 
 3. Create the AppProject:
 ~~~
-$ oc apply -f project.yaml
+oc apply -f project.yaml
 ~~~
 <br/>
 
 4. Create the Application:
 ~~~
-$ oc apply -f application.yaml
+oc apply -f application.yaml
 ~~~
 <br/>
 <br/>
@@ -53,19 +53,19 @@ $ oc apply -f application.yaml
 ### How to reach the NGINX Servers:
 1. Print out the OCP Route:
 ~~~
-$ oc -n istio-system get route
+oc -n istio-system get route
 NAME                                             HOST/PORT                                                                                                   PATH   SERVICES               PORT    TERMINATION   WILDCARD
 nginx-http-ossm-tls-nginx-gateway-525eca1d5089dbdc   nginx-http-ossm-tls-nginx-gateway-525eca1d5089dbdc-istio-system.apps.dnessill-411-sdn.sandbox2574.opentlc.com          istio-ingressgateway   https         passthrough          None
 ~~~
 
 2. Store the Root CA certificate in the ca.crt file:
 ~~~
-$ oc get cm ca-crt -n nginx-http-ossm-tls -ojsonpath='{.data.ca\.crt}' > ca.crt
+oc get cm ca-crt -n nginx-http-ossm-tls -ojsonpath='{.data.ca\.crt}' > ca.crt
 ~~~
 
 3. Server NGINX-1
 ~~~
-$ curl --cacert ca.crt https://nginx-http-ossm-tls-nginx-gateway-525eca1d5089dbdc-istio-system.apps.dnessill-411-sdn.sandbox2574.opentlc.com
+curl --cacert ca.crt https://nginx-http-ossm-tls-nginx-gateway-525eca1d5089dbdc-istio-system.apps.dnessill-411-sdn.sandbox2574.opentlc.com
 <html>
 <h1>Welcome</h1>
 <h1>Hi! This is HTTP Server </h1>
