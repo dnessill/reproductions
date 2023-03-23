@@ -87,9 +87,9 @@ oc apply -f application-ldap-sync.yaml -f application-openldap.yaml -f applicati
    ~~~
 
 2. Connect to the web app using your browser:<br/>
-   Login DN: **cn=admin,dc=example,dc=com**
+   Login DN: **cn=admin,dc=example,dc=com** <br/>
    Password: **anypassword**
-<img src="https://github.com/dnessill/reproductions/blob/main/ldap-identity-provider/phpldapadmin.png" width="80%" height="80%">
+<img src="https://github.com/dnessill/reproductions/blob/main/ldap-identity-provider/phpldapadmin.png" width="100%" height="100%">
 <br/>
 <br/>
 
