@@ -91,7 +91,6 @@ oc apply -f application-ldap-sync.yaml -f application-openldap.yaml -f applicati
    Password: **anypassword**
 <img src="https://github.com/dnessill/reproductions/blob/main/ldap-identity-provider/phpldapadmin.png" width="150%" height="150%">
 <br/>
-<br/>
 
 
 ### Ldap Server details:
