@@ -1,7 +1,10 @@
 # ldap-identity-provider
-This pipeline creates the following two objects:
-   - A Server OpenLDAP pod used uas Identity Provider.
+This reproduction mean to be a simulation of an LDAP Server used as Identiy Provider for validating access users. In addtional, the LDAP Server stores users and groups so that OpenShift Container Platform can sync those LDAP records with internal OpenShift Container Platform records, enabling you to manage your groups in one place.
+
+This reproduction is composed by the following 3 different GitOps Applications:
+   - A Server OpenLDAP pod used as Identity Provider.
    - A Client phpLDAPadmin pod used as tool connected to the LDAP Server.
+   - Ldap-sync configuration used to sync users and groups.
 
 In this reproduction the LDAP Server is deployed inside the OpenShift Cluster so that its installation can be automated with ArgoCD.
 This means that all the communication between the OCP Cluster and the LDAP Server is internal to the Cluster.
@@ -17,7 +20,7 @@ This means that all the communication between the OCP Cluster and the LDAP Serve
 ### Prerequisite
 1. Installing [OpenShift ArgoCD](https://docs.openshift.com/container-platform/latest/cicd/gitops/installing-openshift-gitops.html).
 2. Understand the [Identity Provider](https://docs.openshift.com/container-platform/4.11/authentication/understanding-identity-provider.html).
-3. All the informations about the LDAP Server image and the users configurations hardcoded inside it are reported at the end of this document.
+3. All the informations about the LDAP Server image and the users configurations hardcoded inside it, are reported at the end of this document.
 <br/>
 <br/>
 
@@ -25,7 +28,9 @@ This means that all the communication between the OCP Cluster and the LDAP Serve
 ### How to set up the LDAP Identity Provider using ArgoCD Application
 1. Download AppProject and Application YAML:
    - reproductions/ldap-identity-provider/argocd/project.yaml
-   - reproductions/ldap-identity-provider/argocd/application.yaml
+   - reproductions/ldap-identity-provider/argocd/application-ldap-sync.yaml
+   - reproductions/ldap-identity-provider/argocd/application-openldap.yaml
+   - reproductions/ldap-identity-provider/argocd/application-phpldapadmin.yaml
 <br/>
 
 2. Configure the LDAP Identity Provider updating:
@@ -46,42 +51,127 @@ oc apply -f project.yaml
 ~~~
 <br/>
 
-4. Create the Application:
+4. Create al the resources:
 ~~~
-oc apply -f application.yaml
-~~~
-<br/>
-<br/>
-
-
-### How to reach the NGINX Servers:
-1. Print out the OCP Route:
-~~~
-oc -n istio-system get route
-NAME                                             HOST/PORT                                                                                                   PATH   SERVICES               PORT    TERMINATION   WILDCARD
-nginx-http-ossm-tls-nginx-gateway-525eca1d5089dbdc   nginx-http-ossm-tls-nginx-gateway-525eca1d5089dbdc-istio-system.apps.dnessill-411-sdn.sandbox2574.opentlc.com          istio-ingressgateway   https         passthrough          None
-~~~
-
-2. Store the Root CA certificate in the ca.crt file:
-~~~
-oc get cm ca-crt -n nginx-http-ossm-tls -ojsonpath='{.data.ca\.crt}' > ca.crt
-~~~
-
-3. Server NGINX-1
-~~~
-curl --cacert ca.crt https://nginx-http-ossm-tls-nginx-gateway-525eca1d5089dbdc-istio-system.apps.dnessill-411-sdn.sandbox2574.opentlc.com
-<html>
-<h1>Welcome</h1>
-<h1>Hi! This is HTTP Server </h1>
-</html>
+oc apply -f application-ldap-sync.yaml -f application-openldap.yaml -f application-phpldapadmin.yaml
 ~~~
 <br/>
 <br/>
 
 
-### Datails of the deployment:
-Since this Application uses a TLS termination on the Ingress Gateway, CA and Server certificates are required.<br/>
-To avoid a manual creation of the certificates, an Init Container inside the Pod executes the following actions:
-1. Generate the self-signed Root CA certificate.
-2. Store the CA certificate in the configmap **ca-crt** so that it can be used in the curl command.
-3. Generate and sign the Ingress Gateway certificates using the Root CA and then create the secret **creds-wildcard**.
+### Verify the new Identity Provider access:
+1. Log in the Cluster as **admin_gh** user (all the user passwords are **password**):
+~~~
+oc login -u admin_gh -p password https://<your_api_url>:6443
+Login successful.
+
+You have access to 71 projects, the list has been suppressed. You can list all projects with 'oc projects'
+
+Using project "default".
+~~~
+
+2. Check synchronized groups and users:
+~~~
+$ oc get groups
+NAME         USERS
+Admins       admin_gh
+Maintaners   maintainer, developer
+~~~
+
+
+### Access the phpLDAPadmin web app:
+
+1. Gather the **phpLDAPadmin** URL:
+   ~~~
+oc get route -n phpldapadmin
+   ~~~
+
+2. Connect to the web app using your browser:
+   Login DN: **cn=admin,dc=example,dc=com**
+   Password: **anypassword**
+   <img src="https://github.com/dnessill/reproductions/blob/main/ldap-identity-provider/phpldapadmin.png" width="80%" height="80%">
+<br/>
+<br/>
+
+
+### Ldap Server details:
+The Ldap Server image used in this reproduction is generated starting from the **osixia/openldap** image adding the following users and groups:
+- Users:
+  - admin_gh
+  - maintainer
+  - developer
+
+- Groups:
+  - Admins
+  - Maintaners
+
+The bootstrap ldif file used to hardcoded users and groups is the following:
+~~~
+dn: ou=Users,dc=example,dc=com
+changetype: add
+objectclass: organizationalUnit
+ou: Users
+
+dn: cn=developer,ou=Users,dc=example,dc=com
+changetype: add
+objectclass: inetOrgPerson
+cn: developer
+givenname: developer
+sn: Developer
+displayname: Developer User
+mail: developer@gmail.com
+userpassword: password
+
+dn: cn=maintainer,ou=Users,dc=example,dc=com
+changetype: add
+objectclass: inetOrgPerson
+cn: maintainer
+givenname: maintainer
+sn: Maintainer
+displayname: Maintainer User
+mail: maintainer@gmail.com
+userpassword: password
+
+dn: cn=admin_gh,ou=Users,dc=example,dc=com
+changetype: add
+objectclass: inetOrgPerson
+cn: admin_gh
+givenname: admin_gh
+sn: AdminGithub
+displayname: Admin Github User
+mail: admin_gh@gmail.com
+userpassword: password
+
+dn: ou=Groups,dc=example,dc=com
+changetype: add
+objectclass: organizationalUnit
+ou: Groups
+
+dn: cn=Admins,ou=Groups,dc=example,dc=com
+changetype: add
+cn: Admins
+objectclass: groupOfUniqueNames
+uniqueMember: cn=admin_gh,ou=Users,dc=example,dc=com
+
+dn: cn=Maintaners,ou=Groups,dc=example,dc=com
+changetype: add
+cn: Maintaners
+objectclass: groupOfUniqueNames
+uniqueMember: cn=maintainer,ou=Users,dc=example,dc=com
+uniqueMember: cn=developer,ou=Users,dc=example,dc=com
+~~~
+
+The Dockerfile used to generate the image is the following:
+~~~
+FROM osixia/openldap
+
+ENV LDAP_ORGANISATION="Test Org" \     
+LDAP_DOMAIN="example.com"
+
+COPY bootstrap.ldif /container/service/slapd/assets/config/bootstrap/ldif/50-bootstrap.ldif
+~~~
+
+The command used to build the image is the following:
+~~~
+podman build -t quay.io/dnessill/my-openldap -f Dockerfile
+~~~
