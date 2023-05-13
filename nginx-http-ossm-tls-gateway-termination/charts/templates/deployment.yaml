@@ -42,6 +42,6 @@ spec:
               openssl x509 -req -sha256 -days 365 -CA /tmp/ca.crt -CAkey /tmp/ca.key -set_serial 0 -in /tmp/nginx.csr -out /tmp/nginx.crt;
               oc -n istio-system get secret {{ .Values.secret_name }} 2>/dev/null;
               if [ $? -eq 0 ]; then oc -n istio-system delete secret {{ .Values.secret_name }} &&  oc create -n istio-system secret tls {{ .Values.secret_name }} --key=/tmp/nginx.key --cert=/tmp/nginx.crt; else oc create -n istio-system secret tls {{ .Values.secret_name }} --key=/tmp/nginx.key --cert=/tmp/nginx.crt; fi;
-              oc -n {{ .Values.namespace_name }} create cm {{ .Values.configmap_name }} --from-file=/tmp/ca.crt 
+              oc -n {{ .Values.namespace_name }} create cm {{ .Values.configmap_name }} --from-file=/tmp/ca.crt --from-file=/tmp/ca.key
       serviceAccount: oc-cli
       serviceAccountName: oc-cli
