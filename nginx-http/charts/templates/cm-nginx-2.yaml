@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: index-html-configmap
+  name: index-html-configmap-1
   namespace: {{ .Values.namespace_name }}
 data:
   nginx-1.html: |
