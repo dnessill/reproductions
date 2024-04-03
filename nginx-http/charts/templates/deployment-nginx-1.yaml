@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-1
+  namespace: {{ .Values.namespace_name }}
+spec:
+  selector:
+    matchLabels:
+      app: nginx-1
+  replicas: 1 
+  template:
+    metadata:
+      labels:
+        app: nginx-1
+    spec:
+      containers:
+      - name: nginx
+        image: {{ .Values.registry_name }}/{{ .Values.registry_org }}/{{ .Values.image_name }}:{{ .Values.image_tag }}
+        ports:
+        - containerPort: 80
+        volumeMounts:
+            - name: nginx-index-file
+              mountPath: /usr/share/nginx/html/
+      serviceAccount: nginx-sa
+      serviceAccountName: nginx-sa
+      volumes:
+      - name: nginx-index-file
+        configMap:
+          name: index-html-configmap

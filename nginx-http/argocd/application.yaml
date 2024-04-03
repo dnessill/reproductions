@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+  name: nginx-http
+  namespace: openshift-gitops
+spec:
+  destination:
+    name: in-cluster
+    namespace: nginx-http
+  project: nginx-http
+  source:
+    helm:
+      valueFiles:
+        - values.yaml
+    path: nginx-http/charts/
+    repoURL: 'https://github.com/dnessill/reproductions'
+    targetRevision: HEAD
+  syncPolicy:
+    automated:
+      prune: true
+    retry:
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 3m0s
+      limit: 2
