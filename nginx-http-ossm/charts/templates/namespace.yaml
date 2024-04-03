@@ -3,4 +3,4 @@ kind: Namespace
 metadata:
   name: {{ .Values.namespace_name }}
   labels:
-    argocd.argoproj.io/managed-by: argocd-ncct
+    argocd.argoproj.io/managed-by: openshift-gitops
