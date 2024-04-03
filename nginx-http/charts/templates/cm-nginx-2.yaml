@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: index-html-configmap
+  namespace: {{ .Values.namespace_name }}
+data:
+  nginx-1.html: |
+    <html>
+    <h1>Welcome</h1>
+    </br>
+    <h1>Hi! This is HTTP Server 1 </h1>
+    </html>
