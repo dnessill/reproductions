@@ -6,5 +6,4 @@ image_tag: "latest"
 image_name: "nginx"
 
 # all
-#namespace_name: "nginx-http"
-namespace_name: "caas-unified-tower-lab"
+namespace_name: "nginx-http"
