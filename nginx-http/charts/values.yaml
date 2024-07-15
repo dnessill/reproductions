@@ -6,4 +6,4 @@ image_tag: "latest"
 image_name: "nginx"
 
 # all
-namespace_name: "test-gitops"
+namespace_name: "test-nginx"
