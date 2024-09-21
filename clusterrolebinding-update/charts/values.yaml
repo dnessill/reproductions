@@ -1,0 +1,9 @@
+# cronjob
+
+image_tag: "latest"
+image_name: "busybox"
+claim_name: "claim"
+sc_name: "ocs-storagecluster-ceph-rbd"
+
+# all
+namespace_name: "default"
