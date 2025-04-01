@@ -12,6 +12,7 @@ spec:
     metadata:
       labels:
         app: nginx-http
+        version: v2
       annotations:
         sidecar.istio.io/inject: "true"
         traffic.sidecar.istio.io/excludeOutboundPorts: "443"
