@@ -13,11 +13,11 @@ spec:
     - destination:
         host: nginx-http
         subset: "v1"
-      weight: 100
+      weight: 50
     - destination:
         host: nginx-http
         subset: "v2"
-      weight: 0
+      weight: 50
   tcp:
   - route:
     - destination:
