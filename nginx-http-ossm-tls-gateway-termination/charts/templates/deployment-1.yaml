@@ -7,6 +7,7 @@ spec:
   selector:
     matchLabels:
       app: nginx-http
+      version: v1
   replicas: 1 
   template:
     metadata:
