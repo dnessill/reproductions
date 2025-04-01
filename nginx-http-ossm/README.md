@@ -43,6 +43,14 @@ $ oc -n istio-system get route
 NAME                                        HOST/PORT                                                                                              PATH   SERVICES               PORT          TERMINATION          WILDCARD
 nginx-http-ossm-nginx-gateway-525eca1d5089dbdc   nginx-http-ossm-nginx-gateway-525eca1d5089dbdc-istio-system.apps.dnessill-411-sdn.sandbox2574.opentlc.com          istio-ingressgateway   http2                              None                              None
 ~~~
+   **Note**: 
+   Starting from Red Hat OpenShift Service Mesh 2.5, automatic route creation, also known as Istio OpenShift Routing (IOR), is a deprecated feature that is disabled by default.
+   Since this use case uses HTTP, we can use the ingress-gateway route deployed by Service Mesh Control Plane.
+   ~~~
+   $  oc -n istio-system get route istio-ingressgateway
+   NAME                   HOST/PORT                                                                        PATH   SERVICES               PORT   TERMINATION   WILDCARD
+   istio-ingressgateway   istio-ingressgateway-istio-system.apps.dnessill416.lab.upshift.rdu2.redhat.com          istio-ingressgateway   8080                 None
+   ~~~
 
 2. Server NGINX-1
 ~~~
