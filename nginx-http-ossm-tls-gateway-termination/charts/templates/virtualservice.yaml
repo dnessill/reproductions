@@ -15,10 +15,6 @@ spec:
         host: nginx-http
         port:
           number: 80
-    - destination:
-        host: nginx-http
-        port:
-          number: 80
   route:
   - destination:
       host: nginx-http
