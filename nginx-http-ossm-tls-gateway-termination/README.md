@@ -43,7 +43,7 @@ $ oc -n istio-system get route
 NAME                                             HOST/PORT                                                                                                   PATH   SERVICES               PORT    TERMINATION   WILDCARD
 nginx-http-ossm-tls-nginx-gateway-525eca1d5089dbdc   nginx-http-ossm-tls-nginx-gateway-525eca1d5089dbdc-istio-system.apps.dnessill-411-sdn.sandbox2574.opentlc.com          istio-ingressgateway   https         passthrough          None
 ~~~
-   Note:
+   **Note**:
    Starting from Red Hat OpenShift Service Mesh 2.5, automatic route creation, also known as Istio OpenShift Routing (IOR), is a deprecated feature that is disabled by default.
    The route can be created manually with the following command:
    ~~~
