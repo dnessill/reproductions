@@ -13,13 +13,19 @@ spec:
     route:
     - destination:
         host: nginx-http
-        subset: "v1"
-      weight: 80
         port:
           number: 80
     - destination:
         host: nginx-http
-        subset: "v2"
-      weight: 20
         port:
           number: 80
+  route:
+  - destination:
+      host: nginx-http
+      subset: "v1"
+    weight: 80
+  - destination:
+      host: nginx-http
+      subset: "v2"
+    weight: 20
+
