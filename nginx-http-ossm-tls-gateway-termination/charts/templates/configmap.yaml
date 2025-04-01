@@ -7,5 +7,5 @@ data:
   index.html: |
     <html>
     <h1>Welcome</h1>
-    <h1>Hi! This is HTTP Server </h1>
+    <h1>Hi! This is HTTP Server 1</h1>
     </html>
