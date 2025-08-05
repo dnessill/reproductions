@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+  name: nginx-http-ossm-tls-gateway-termination
+  namespace: openshift-gitops
+spec:
+  destination:
+    name: in-cluster
+    namespace: nginx-http-ossm-tls
+  project: nginx-http-ossm-tls-gateway-termination
+  source:
+    helm:
+      valueFiles:
+        - values.yaml
+    path: nginx-http-ossm-tls-gateway-termination/charts/
+    repoURL: 'https://github.com/dnessill/reproductions'
+    targetRevision: HEAD
+  syncPolicy:
+    automated:
+      prune: true
+    retry:
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 3m0s
+      limit: 2

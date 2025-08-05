@@ -1,0 +1,26 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: nginx-vs
+  namespace: {{ .Values.namespace_name }}
+spec:
+  hosts:
+  - "*"
+  gateways:
+  - nginx-gateway
+  http:
+  - route:
+    - destination:
+        host: nginx-http
+        subset: "v1"
+      weight: 50
+    - destination:
+        host: nginx-http
+        subset: "v2"
+      weight: 50
+  tcp:
+  - route:
+    - destination:
+        host: nginx-http
+        port:
+          number: 80

@@ -1,0 +1,15 @@
+# deployment
+
+registry_name: "quay.io"
+registry_org: "dnessill"
+image_tag: "latest"
+image_name: "nginx"
+image_init_tag: "latest"
+image_init_name: "dnessill-root-ose-cli"
+secret_name: "creds-wildcard"
+configmap_name: "ca-crt"
+secret_name_2: "creds-wildcard-2"
+configmap_name_2: "ca-crt-2"
+
+# all
+namespace_name: "nginx-http-ossm-tls"
