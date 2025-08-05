@@ -7,7 +7,7 @@ spec:
   hosts:
   - "nginx-http-ossm-tls-multiple-endpoints.apps.sharedocp416.sbr-shift.gsslab.brq2.redhat.com"
   gateways:
-  - nginx-gateway
+  - istio-system/nginx-gateway
   http:
   - match:
     - uri:
