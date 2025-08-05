@@ -9,7 +9,21 @@ spec:
   gateways:
   - istio-system/nginx-gateway
   http:
-  - match:
+  - headers:
+        request:
+          remove:
+            - x-forwarded-client-cert
+        response:
+          remove:
+            - x-envoy-peer-metadata
+            - x-envoy-peer-metadata-id
+            - x-forwarded-client-cert
+            - x-forwarded-for
+            - x-forwarded-proto
+            - x-envoy-attempt-count
+            - x-envoy-internal
+            - x-envoy-upstream-service-time
+    match:
     - uri:
         prefix: /v1/k2view/api/searchCustomer
     route:
@@ -17,7 +31,21 @@ spec:
         host: nginx-http-1
         port:
           number: 80
-  - match:
+  - headers:
+        request:
+          remove:
+            - x-forwarded-client-cert
+        response:
+          remove:
+            - x-envoy-peer-metadata
+            - x-envoy-peer-metadata-id
+            - x-forwarded-client-cert
+            - x-forwarded-for
+            - x-forwarded-proto
+            - x-envoy-attempt-count
+            - x-envoy-internal
+            - x-envoy-upstream-service-time
+    match:
     - uri:
         prefix: /v1/k2view/api/GetOutage
     route:
