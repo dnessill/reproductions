@@ -15,7 +15,7 @@ spec:
         exact: /nginx-1.html
     route:
     - destination:
-        host: nginx-1
+        host: nginx-http
         port:
           number: 80
   - match:
