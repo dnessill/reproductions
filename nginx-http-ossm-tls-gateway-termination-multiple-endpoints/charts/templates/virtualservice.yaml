@@ -9,19 +9,18 @@ spec:
   gateways:
   - nginx-gateway
   http:
-  - match:
-    - uri:
-        exact: /pod-1
-    route:
+  - route:
     - destination:
-        host: nginx-http-1
-        port:
-          number: 80
-  - match:
-    - uri:
-        exact: /pod-2
-    route:
+        host: nginx-http
+        subset: "v1"
+      weight: 50
     - destination:
-        host: nginx-http-2
+        host: nginx-http
+        subset: "v2"
+      weight: 50
+  tcp:
+  - route:
+    - destination:
+        host: nginx-http
         port:
           number: 80
