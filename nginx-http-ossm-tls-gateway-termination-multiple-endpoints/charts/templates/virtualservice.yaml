@@ -19,7 +19,7 @@ spec:
           number: 80
   - match:
     - uri:
-        exact: /nginx-2
+        prefix: /v1/k2view/api/GetOutage
     route:
     - destination:
         host: nginx-http-2
