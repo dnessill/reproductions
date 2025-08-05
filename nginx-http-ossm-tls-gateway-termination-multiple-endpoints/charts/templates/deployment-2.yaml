@@ -6,12 +6,12 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: nginx-http
+      app: nginx-http-2
   replicas: 1
   template:
     metadata:
       labels:
-        app: nginx-http
+        app: nginx-http-2
         version: v2
       annotations:
         sidecar.istio.io/inject: "true"
