@@ -12,12 +12,6 @@ spec:
   - route:
     - destination:
         host: nginx-http-1
-        subset: "v1"
-      weight: 50
-    - destination:
-        host: nginx-http-1
-        subset: "v2"
-      weight: 50
   tcp:
   - route:
     - destination:
