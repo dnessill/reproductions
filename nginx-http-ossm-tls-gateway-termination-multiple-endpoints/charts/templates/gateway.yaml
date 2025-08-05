@@ -2,7 +2,8 @@ apiVersion: networking.istio.io/v1alpha3
 kind: Gateway
 metadata:
   name: nginx-gateway
-  namespace: {{ .Values.namespace_name }}
+#  namespace: {{ .Values.namespace_name }}
+  namespace: istio-system
 spec:
   selector:
     istio: ingressgateway # use istio default controller
