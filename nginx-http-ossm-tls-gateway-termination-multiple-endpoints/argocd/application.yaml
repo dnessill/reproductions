@@ -3,18 +3,18 @@ kind: Application
 metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io
-  name: nginx-http-ossm-tls-gateway-termination
+  name: nginx-ossm-tls-gateway-termination
   namespace: openshift-gitops
 spec:
   destination:
     name: in-cluster
-    namespace: nginx-http-ossm-tls
+    namespace: nginx-ossm-tls-multiple-endpoints
   project: nginx-http-ossm-tls-gateway-termination
   source:
     helm:
       valueFiles:
         - values.yaml
-    path: nginx-http-ossm-tls-gateway-termination/charts/
+    path: nginx-http-ossm-tls-gateway-termination-multiple-endpoints/charts/
     repoURL: 'https://github.com/dnessill/reproductions'
     targetRevision: HEAD
   syncPolicy:
