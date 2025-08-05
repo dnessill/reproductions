@@ -12,4 +12,4 @@ secret_name_2: "creds-wildcard-2"
 configmap_name_2: "ca-crt-2"
 
 # all
-namespace_name: "nginx-ossm-tls-miltiple-endpoints"
+namespace_name: "nginx-ossm-tls-multiple-endpoints"

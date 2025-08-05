@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
-  name: nginx-ossm-tls-miltiple-endpoints
+  name: nginx-ossm-tls-multiple-endpoints
   namespace: openshift-gitops
 spec:
   clusterResourceWhitelist:
@@ -10,7 +10,7 @@ spec:
   description: This is just an example.
   destinations:
     - name: in-cluster
-      namespace: nginx-ossm-tls-miltiple-endpoints
+      namespace: nginx-ossm-tls-multiple-endpoints
       server: 'https://kubernetes.default.svc'
   namespaceResourceWhitelist:
     - group: '*'

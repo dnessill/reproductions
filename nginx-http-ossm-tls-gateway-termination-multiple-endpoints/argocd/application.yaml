@@ -3,13 +3,13 @@ kind: Application
 metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io
-  name: nginx-ossm-tls-miltiple-endpoints
+  name: nginx-ossm-tls-multiple-endpoints
   namespace: openshift-gitops
 spec:
   destination:
     name: in-cluster
-    namespace: nginx-ossm-tls-miltiple-endpoints
-  project: nginx-ossm-tls-miltiple-endpoints
+    namespace: nginx-ossm-tls-multiple-endpoints
+  project: nginx-ossm-tls-multiple-endpoints
   source:
     helm:
       valueFiles:
