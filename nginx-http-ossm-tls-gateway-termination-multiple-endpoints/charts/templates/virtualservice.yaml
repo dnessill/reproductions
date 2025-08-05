@@ -18,3 +18,11 @@ spec:
         host: nginx-http-1
         port:
           number: 80
+  - match:
+    - uri:
+        exact: /nginx-2
+    route:
+    - destination:
+        host: nginx-http-2
+        port:
+          number: 80
