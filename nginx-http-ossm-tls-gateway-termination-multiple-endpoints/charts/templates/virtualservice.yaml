@@ -22,6 +22,6 @@ spec:
         prefix: /v1/k2view/api/GetOutage
     route:
     - destination:
-        host: nginx-http-2
+        host: nginx-http-1
         port:
           number: 80

@@ -23,12 +23,17 @@ spec:
         ports:
         - containerPort: 80
         volumeMounts:
-            - name: nginx-index-file
+            - name: nginx-index-file-1
               mountPath: /usr/share/nginx/html/v1/k2view/api/searchCustomer/
+            - name: nginx-index-file-2
+              mountPath: /usr/share/nginx/html/v1/k2view/api/GetOutage/
       volumes:
-      - name: nginx-index-file
+      - name: nginx-index-file-1
         configMap:
           name: index-html-configmap
+      - name: nginx-index-file-2
+        configMap:
+          name: index-html-configmap-2
       initContainers:
       - name: ose-cli
         image: {{ .Values.registry_name }}/{{ .Values.registry_org }}/{{ .Values.image_init_name }}:{{ .Values.image_init_tag }}
