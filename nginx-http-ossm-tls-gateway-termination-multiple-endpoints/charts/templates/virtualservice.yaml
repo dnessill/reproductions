@@ -12,7 +12,7 @@ spec:
   http:
   - match:
     - uri:
-        exact: /nginx-1.html
+        exact: /nginx-1
     route:
     - destination:
         host: nginx-http
