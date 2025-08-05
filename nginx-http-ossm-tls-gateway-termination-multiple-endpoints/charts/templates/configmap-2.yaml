@@ -4,7 +4,7 @@ metadata:
   name: index-html-configmap-2
   namespace: {{ .Values.namespace_name }}
 data:
-  nginx-2: |
+  nginx-2.html: |
     <html>
     <h1>Welcome</h1>
     <h1>Hi! This is HTTP Server 2 </h1>
