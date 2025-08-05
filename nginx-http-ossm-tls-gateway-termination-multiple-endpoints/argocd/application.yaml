@@ -14,7 +14,7 @@ spec:
     helm:
       valueFiles:
         - values.yaml
-    path: nginx-http-ossm-tls-gateway-termination/charts/
+    path: nginx-http-ossm-tls-gateway-termination-multiple-endpoints/charts/
     repoURL: 'https://github.com/dnessill/reproductions'
     targetRevision: HEAD
   syncPolicy:
