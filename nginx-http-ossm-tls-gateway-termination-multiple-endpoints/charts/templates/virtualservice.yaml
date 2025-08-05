@@ -5,7 +5,7 @@ metadata:
   namespace: {{ .Values.namespace_name }}
 spec:
   hosts:
-  - "*"
+  - "nginx-http-ossm-tls-multiple-endpoints.apps.sharedocp416.sbr-shift.gsslab.brq2.redhat.com"
   gateways:
   - nginx-gateway
   http:
