@@ -9,12 +9,19 @@ spec:
   gateways:
   - nginx-gateway
   http:
-  - route:
+  - match:
+    - uri:
+        exact: /pod-1
+    route:
     - destination:
         host: nginx-http-1
-  tcp:
-  - route:
+        port:
+          number: 80
+  - match:
+    - uri:
+        exact: /pod-2
+    route:
     - destination:
-        host: nginx-http-1
+        host: nginx-http-2
         port:
           number: 80
