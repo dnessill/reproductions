@@ -11,7 +11,7 @@ spec:
   http:
   - match:
     - uri:
-        exact: /nginx-1
+        prefix: /v1/k2view/api/searchCustomer
     route:
     - destination:
         host: nginx-http-1
