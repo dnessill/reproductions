@@ -8,7 +8,7 @@ metadata:
 spec:
   destination:
     name: in-cluster
-    namespace: nginx-http-ossm-tls
+    namespace: nginx-ossm-virtualservices
   project: nginx-http-ossm-tls-gateway-termination
   source:
     helm:
