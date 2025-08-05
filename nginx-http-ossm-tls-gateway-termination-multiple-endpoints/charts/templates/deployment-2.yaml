@@ -24,7 +24,7 @@ spec:
         - containerPort: 80
         volumeMounts:
             - name: nginx-index-file
-              mountPath: /usr/share/nginx/html/v1/k2view/api/searchCustomer/
+              mountPath: /usr/share/nginx/html/v1/k2view/api/GetOutage/
       volumes:
       - name: nginx-index-file
         configMap:
