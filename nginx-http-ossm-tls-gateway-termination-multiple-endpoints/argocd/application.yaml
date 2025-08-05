@@ -3,13 +3,13 @@ kind: Application
 metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io
-  name: nginx-http-ossm-tls-gateway-termination
+  name: nginx-ossm-virtualservices
   namespace: openshift-gitops
 spec:
   destination:
     name: in-cluster
     namespace: nginx-ossm-virtualservices
-  project: nginx-http-ossm-tls-gateway-termination
+  project: nginx-ossm-virtualservices
   source:
     helm:
       valueFiles:

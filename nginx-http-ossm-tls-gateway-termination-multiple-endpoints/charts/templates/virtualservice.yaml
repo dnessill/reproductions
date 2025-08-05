@@ -5,22 +5,24 @@ metadata:
   namespace: {{ .Values.namespace_name }}
 spec:
   hosts:
+  hosts:
   - "*"
   gateways:
   - nginx-gateway
   http:
-  - route:
+  - match:
+    - uri:
+        exact: /nginx-1.html
+    route:
     - destination:
-        host: nginx-http
-        subset: "v1"
-      weight: 50
+        host: nginx-1
+        port:
+          number: 80
+  - match:
+    - uri:
+        exact: /nginx-2.html
+    route:
     - destination:
-        host: nginx-http
-        subset: "v2"
-      weight: 50
-  tcp:
-  - route:
-    - destination:
-        host: nginx-http
+        host: nginx-2
         port:
           number: 80

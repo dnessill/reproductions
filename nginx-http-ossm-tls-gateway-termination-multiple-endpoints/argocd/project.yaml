@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
-  name: nginx-http-ossm-tls-gateway-termination
+  name: nginx-ossm-virtualservices
   namespace: openshift-gitops
 spec:
   clusterResourceWhitelist:
