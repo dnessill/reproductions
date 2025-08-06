@@ -1,21 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-http-1
+  name: ccam-authorization-manager-gateway
   namespace: {{ .Values.namespace_name }}
 spec:
   selector:
     matchLabels:
-      app: nginx-http-1
+      app: ccam-authorization-manager-gateway
   replicas: 1 
   template:
     metadata:
       labels:
-        app: nginx-http-1
+        app: ccam-authorization-manager-gateway
         version: v1
       annotations:
         sidecar.istio.io/inject: "true"
-        traffic.sidecar.istio.io/excludeOutboundPorts: "443"
     spec:
       containers:
       - name: nginx
@@ -26,7 +25,7 @@ spec:
             - name: nginx-index-file-1
               mountPath: /usr/share/nginx/html/v1/k2view/api/searchCustomer/
             - name: nginx-index-file-2
-              mountPath: /usr/share/nginx/html/v1/k2view/api/GetOutage/
+              mountPath: /usr/share/nginx/html/v1/k2view/api/getOutageTickets/
       volumes:
       - name: nginx-index-file-1
         configMap:
