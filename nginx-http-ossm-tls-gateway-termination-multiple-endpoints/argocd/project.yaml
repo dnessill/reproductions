@@ -10,7 +10,7 @@ spec:
   description: This is just an example.
   destinations:
     - name: in-cluster
-      namespace: nginx-ossm-virtualservices
+      namespace: app-ccam-rosa-acc
       server: 'https://kubernetes.default.svc'
   namespaceResourceWhitelist:
     - group: '*'
