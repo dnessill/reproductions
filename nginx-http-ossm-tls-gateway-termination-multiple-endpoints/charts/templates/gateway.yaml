@@ -2,7 +2,7 @@ apiVersion: networking.istio.io/v1beta1
 kind: Gateway
 metadata:
   name: app-ccam-rosa-acc-ingress
-  namespace: istio-system
+  namespace: app-ccam-rosa-acc
 spec:
   selector:
     istio: ingressgateway

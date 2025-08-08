@@ -5,7 +5,7 @@ metadata:
   namespace: app-ccam-rosa-acc
 spec:
   gateways:
-  - istio-system/app-ccam-rosa-acc-ingress
+  - app-ccam-rosa-acc-ingress
   hosts:
   - app-ccam-rosa.acc.microbots.cloud.daniele.com 
   http:
