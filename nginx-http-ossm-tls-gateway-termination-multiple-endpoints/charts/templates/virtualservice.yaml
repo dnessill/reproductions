@@ -7,7 +7,7 @@ spec:
   gateways:
   - istio-system/app-ccam-rosa-acc-ingress
   hosts:
-  - app-ccam-rosa.acc.microbots.apps.dnessill416.sandbox3248.opentlc.com 
+  - app-ccam-rosa-acc-microbots.apps.dnessill416.sandbox3248.opentlc.com 
   http:
   - headers:
       request:
