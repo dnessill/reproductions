@@ -8,7 +8,7 @@ spec:
     istio: ingressgateway
   servers:
   - hosts:
-    - app-ccam-rosa.acc.microbots.cloud.daniele.com
+    - app-ccam-rosa-acc-microbots.apps.dnessill416.sandbox3248.opentlc.com
     port:
       name: https
       number: 443
